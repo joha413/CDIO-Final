@@ -1,0 +1,180 @@
+\documentclass[12pt,oneside,a4paper,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.25cm,headheight=26pt,includeheadfoot]{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage[framed, numbered]{matlab-prettifier}
+\usepackage{changepage}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{caption}
+\usepackage{tocloft}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{titling}
+\usepackage{float}
+\usepackage{comment}
+\usepackage{booktabs}
+\usepackage{indentfirst}
+\usepackage{lscape}
+\usepackage{booktabs,caption}
+\usepackage[flushleft]{threeparttable}
+\usepackage[english]{nomencl}
+\usepackage{xcolor}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage[english, danish]{babel}
+\usepackage{longtable}
+\usepackage{csquotes}
+\usepackage[toc,page]{appendix}
+
+\usepackage[style=authoryear,sorting=nty]{biblatex}
+\addbibresource{references.bib}
+
+
+% --- set footer and header ---
+\pagestyle{fancy}
+\fancyhf{}
+
+\setlength{\parindent}{0em}
+\title{CDIO del 3} % to reference as \title, dont use \maketitle
+\makeatletter\let\Title\@title\makeatother
+
+
+
+\lstset{language=Matlab,
+style=Matlab-editor,
+basicstyle=\normalsize\mlttfamily,
+numbers=left,
+numberstyle={\scriptsize\color{black}},			% size of the numbers
+numbersep=0.5cm											
+}
+
+\newlist{steps}{enumerate}{1}
+\setlist[steps, 1]{leftmargin=1.5cm,label = Step \arabic*:}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+%\lhead{\Title}
+\rhead{\nouppercase{\rightmark}}
+\lhead{\Title}
+\rfoot{\includegraphics[height=1.25cm]{root/logo.pdf}} % right header logo
+\setlength\headheight{16pt}
+\setlength{\footskip}{50pt}
+\lhead{\Title} %rightH title
+\cfoot{\thepage}
+
+% --- End of page settings ---
+
+
+
+\begin{document}
+\pagenumbering{roman} 
+\input{sources/0_forside}
+
+
+\newpage
+\pagenumbering{arabic} 
+%\fancyhead[C]{Side \thepage\ af \pageref{LastPage}}
+
+\fancyfoot[C]{Side \thepage\ af \pageref{endOfDoc}}
+
+\rhead{Timeplan \& Summary}
+\section{Timeplan} \label{ch1}
+\input{sources/1_timeplan} 
+
+\section{Summary} \label{ch2}
+\input{sources/2_summary}
+
+%------------------Indholdsfortegnelse start------------------
+
+\newpage
+\rhead{Indhold}
+\doublespacing
+%\addcontentsline{toc}{section}{Table of Contents}
+\renewcommand{\baselinestretch}{1}\normalsize
+\tableofcontents
+\renewcommand{\baselinestretch}{1}\normalsize
+%\singlespacing
+\thispagestyle{fancy} % force page style
+
+%------------------Indholdsfortegnelse slut------------------
+
+
+\newpage
+\rhead{Introduktion}
+\section{Introduktion} \label{ch3}
+\input{sources/3_introduktion} 
+
+
+\rhead{Krav}
+\section{Krav} \label{ch4}
+\input{sources/4_krav} 
+
+\newpage
+\rhead{Analyse}
+\section{Analyse} \label{ch5}
+\input{sources/5_analyse/0_analyse} 
+
+\newpage
+\rhead{Design}
+\section{Design} \label{ch6}
+\input{sources/6_design/0_design}
+
+\newpage
+\rhead{Implementering}
+\section{Implementering} \label{ch7}
+\input{sources/7_implementering/0_implementering}
+
+
+\newpage
+\rhead{Konfiguration}
+\section{Konfiguration} \label{ch9}
+\input{sources/8_konfiguration}
+
+\newpage
+\rhead{Test}
+\section{Test} \label{ch10}
+\input{sources/9_test}
+
+\newpage
+\rhead{Projektplanlægning}
+\section{Projektplanlægning} \label{ch11}
+\input{sources/10_projektplanlægning}
+
+\newpage
+\rhead{Konklusion}
+\section{Konklusion} \label{ch12}
+\input{sources/11_konklusion}
+
+\newpage
+\rhead{Figurer}
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\thispagestyle{fancy}
+
+\newpage
+\rhead{Tabeller}
+\addcontentsline{toc}{section}{Tabeller}
+\listoftables
+\thispagestyle{fancy}
+
+
+\newpage
+\rhead{Litteratur}
+\addcontentsline{toc}{section}{Litteratur}
+\printbibliography
+
+\newpage
+\section{Bilag} \label{ch13}
+\addcontentsline{toc}{section}{Bilag}
+\input{sources/12_bilag/0_bilag}
+
+\label{endOfDoc}
+\end{document}
