@@ -1,9 +1,9 @@
 \subsection{Ownable}
-"Ownable"-klassen er nedarvet fra "Field" men har derudover også et billede tilknyttet. Felterne tilknyttet denne klasse bliver givet et købspris, navn farve og en lejepris (hvis andre spillere end en selv lander på den).
-\begin{figure}[H]
+"Ownable"-klassen er en abstrakt klasse, der indeholder de atributter, som de felter spillerne kan eje. Klassen er abstrakt, da det ikke skal være muligt at oprette objekter af denne type. Istedet skal de felter der nedarver fra denne klasse oprettes. Klasserne Property, Brewery og Shipping, nedarver alle fra denne klasse. Klassen Ownable indeholder en konstruktør, der tager imod parametrene: title, value, mortgage value og color.
+\begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{sources/7_implementering/Ownable.png}
-    \caption{Ownable klasse}
-    \label{fig:Ownable}
+    \includegraphics{sources/7_implementering/OwnableKonstruktør.PNG}
+    \caption{Attributer og konstruktør i Ownable klassen}
+    \label{fig:OwnableKons}
 \end{figure}
-Ownable klassen, som har tilføjet owner og rent udover Fields variable. Ownable gør det muligt for et felt, at få en ejer og rent, som ejeren tjener, når andre lander på et købt felt.
+Alle disse paramterer går igen i alle felter der kan ejes. Derudover er atributten Owner af typen "Player" blevet implementeret med en Getter og Setter metode.
