@@ -188,10 +188,69 @@ Alternativ process &
 \end{center}
 
 
+
 \begin{center}
 \begin{longtable}{|l|p{11cm}|}
 \hline
-Navn &  UC3 - Gå i fængsel\\
+Navn &  UC3 - Køb grund\\
+\hline
+Short description & SSpilleren køber en grund på brættet
+ \\
+\hline
+Precondition & Spilleren lander på grunden \\
+\hline
+Postcondition & Spilleren ejer grunden \\
+\hline
+Fejlsituationer & a) Grunden ejes af en anden spiller \newline 
+b) Spilleren har ikke penge til at købe grunden \\
+\hline
+Status i tilfælde af fejl & Spilleren får ikke ejerskab af grunden\\
+\hline
+Aktører & Spiller \\
+\hline
+Udløser & Spilleren lander på et felt, man kan købe.
+
+ \\
+\hline
+Standard process &  
+\begin{minipage}[t]{1\textwidth}
+  \begin{enumerate}
+      \item Spilleren vælger at købe grunden, han er landet på\newline
+      \emph Se alternativ process\
+      \item Spilleren betaler prisen for grunden til banken, \newline og får ejerskab af grunden.
+     \vspace{0.5cm}
+  \end{enumerate} 
+  \end{minipage}
+\\
+\hline
+Alternativ process & 
+\begin{minipage}[t]{1\textwidth}
+ \begin{itemize}
+     \item Grunden ejes af medspiller
+     \begin{enumerate}
+         \item Spilleren betaler husleje til grundens ejer.
+     \end{enumerate}
+\item    Spilleren har ikke råd til grunden \begin{enumerate}
+\item Spilleren får ikke ejerskab af grunden
+\end{enumerate}
+\end{itemize}
+
+
+\end{minipage}
+
+\\
+\hline
+\end{longtable}
+\end{center}
+
+
+
+
+
+\begin{center}
+\begin{longtable}{|l|p{11cm}|}
+\hline
+Navn &  UC4 - Gå i fængsel\\
 \hline
 Short description & Spilleren skal sættes i fængsel \\
 \hline
@@ -214,18 +273,8 @@ Standard process &
   \begin{enumerate}
       \item Spilleren lander på fængsel-feltet.\newline
       \emph Se alternativ process\
-      \begin{itemize}
-          \item Spilleren har trukket et 'gå i fængsel' chancekort
-      \end{itemize}
-      \item Passerede spilleren start?
-      \begin{itemize}
-          \item Modtag 4000. 
-      \end{itemize}
-      \item Slog spilleren to ens?
-      \begin{itemize}
-          \item Gå til trin 1.
-      \end{itemize}
-      \item Turen går videre til den næste spiller.\vspace{0.5cm}
+      \item Spillerens brik flyttes til fængslet.
+     \vspace{0.5cm}
   \end{enumerate} 
   \end{minipage}
 \\
@@ -233,36 +282,11 @@ Standard process &
 Alternativ process & 
 \begin{minipage}[t]{1\textwidth}
  \begin{itemize}
-     \item Grund
+     \item Fængsel-kort
      \begin{enumerate}
-         \item Hvis ingen ejer grunden,\newline vil spilleren købe grunden? (Se UC3)
-         \item Hvis en anden spiller ejer grunden, betal leje.
-         \item Hvis spilleren selv ejer grunden, ingenting. \newline (Gå til trin 3. i hoveddel)
-     \end{enumerate}
-     \item Besøg i fængsel
-     \begin{enumerate}
-         \item Der sker ingenting
-         \item Gå til trin 3. i hoveddel.
-     \end{enumerate}
-     \item Gå i fængsel
-     \begin{enumerate}
-         \item Flyt spillerens brik i fængsel
-         \item Gå til trin 5. i hoveddel.
-     \end{enumerate}
-     \item Prøv lykken
-     \begin{enumerate}
-         \item Tag chancekort 
-         \item udfør chancekort.
-         \item Gå til trin 3. i hoveddel.
-     \end{enumerate}
-     \item Parkering
-     \begin{enumerate}
-         \item Gå til trin 3. i hoveddel.
-     \end{enumerate}
-     \item Beskatningsfelt
-     \begin{enumerate}
-         \item Betal skat
-         \item Gå til trin 3. i hoveddel.
+         \item gå i fængsel"-kortet trækkes af spilleren.
+         \item Spilleren rykker sin brik til fængslet
+         \item Passerer spilleren start, modtager de ikke 4000kr \
      \end{enumerate}
  \end{itemize}
 \end{minipage}

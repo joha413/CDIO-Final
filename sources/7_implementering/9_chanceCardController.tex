@@ -1,0 +1,40 @@
+\subsection{ChanceCardController}
+ChanceCardController er lavet som en singleton klasse, dvs at det kun kan laves en instans af klassen. Det er lavet sådan fordi der ikke skal kunne være flere forskellige "bunker" af kort. 
+I ChanceCardController bliver alle de forskellige chancekort oprettet med navn, en beskrivelse og en værdi. Værdien ændrer sig i forhold til hvilken slags chancekort der bliver oprettet. Spillet har delt de forskellige chancekort op i 7 forskellige kategorier.
+
+Alle de forskellige chancekort nedarver fra den abstrakte klasse ChanceCard.
+
+\begin{itemize}
+    \item BankPay
+    \item JailCards
+    \item MoveFields
+    \item MoveToField
+    \item PricesRise
+    \item ReceiveFromPlayers
+    \item ReceiveMoney
+\end{itemize}
+
+\subsubsection{ChanceCard}
+ChanceCard er en abstrakt klasse, da den kun skal bruges af de andre nedarvninger af chancekort. ChanceCard er altså ikke et kort for sig selv. ChanceCard har en konstruktør der tager imod en beskrivelse. Derudover har den abstrakt metode der hedder onDraw, som hvert enkelt type af chancekort selv skal implementerer.
+
+\subsubsection{BankPay}
+BankPay er typen af chancekort hvor en spiller skal betale penge til banken. Klassens implementation af onDraw trækker altså en bestemt værdi fra spilleren. Værdien bliver angivet når ChanceCardControlleren opretter et kort af denne type.
+
+\subsubsection{JailCards}
+JailCards er chancekort der giver spilleren er "ud af fængsel" kort. Kortet kan bruges af en spiller når det er i fængsel, og ikke vil slå to ens med terningerne eller betale 1000.
+
+\subsubsection{MoveFields}
+MoveFields flytter spilleren et bestemt antal felter. Det bestemte antal felter, angives når ChanceCardController opretter kortet. 
+
+\subsubsection{MoveToField}
+MoveToField flytter spilleren hen til et bestemt felt, eller det nærmeste type af et felt, f.eks. et rederi. Det bestemte felt eller felter angives når ChanceCardController opretter kortet. Felterne angives som et array, da der godt kan være flere forskellige felter, men det er det nærmeste som spilleren skal flytte hen til.
+
+\subsubsection{PricesRise}
+PricesRise er chancekort der gør at spilleren skal betale et bestemt beløb for hvert hus eller hotel spilleren ejer. 
+
+\subsubsection{ReceiveFromPlayers}
+ReceiveFromPlayers er chancekort der gør at hver modspiller skal give den spiller der trækker kortet, et bestemt beløb. Her tager onDraw metoden paramteren playerList, da den skal hvide hvem modspillerne er, for at kunne trække pengene.
+
+\subsubsection{ReceiveMoney}
+ReceiveMoney er chancekort hvor spilleren modtager penge. onDraw metoden indsætter et bestemt beløb på spillerens konto. Værdien er angivet når ChanceCardControlleren opretter kortene.
+
